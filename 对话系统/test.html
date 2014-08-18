@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>广播对话系统设计</title>
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+			font-family: "Mircosoft YaHei";
+			font-size: 20px;
+		}
+
+		#display {
+			width: 50%;
+			height: 100px;
+			border-style: solid;
+			border-width: 2px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="display"></ul>
+
+	<form>
+		<label>对话</label><input type="text" id="inputText"/>
+		<input type="button" value="发送" onclick="toDisplay()" />
+	</form>
+
+	<script type="text/javascript">
+		var display = document.getElementById("display");
+		var inputText = document.getElementById("inputText");
+		var msgList = new Array();
+
+		function toDisplay() {
+			if (inputText.value != "") {
+				msgList[msgList.length] = inputText.value;
+				show();
+			} else {
+				alert("您未键入任何内容！");
+			}
+		}
+
+		function show() {
+			display.innerHTML = "";
+			for (x in msgList) {
+				var li = document.createElement("li");
+				li.innerHTML = msgList[x];
+				display.appendChild(li);
+			}
+		}
+
+
+	</script>
+
+</body>
+</html>
