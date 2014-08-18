@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文件选择功能试验</title>
+	<style></style>
+</head>
+<body>
+	<label>选择文件：</label><input type="file" accept="image/*" multiple id="images" />
+	<br>
+	<button onclick="showDetails();">显示文件信息</button>
+	<br>
+	<button>读取文本格式</button>
+	<button>读取二进制</button>
+	<button>读取DataURL</button>
+
+	
+	<script>
+	if (FileReader) {
+		reader = new FileReader();
+	} else {
+		alert("您的浏览器暂时不支持FileReader");
+	}
+	
+
+	var showDetails = function() {
+		var imageEle = document.getElementById("images");
+		var fileList = imageEle.files;
+		for (var i=0 ; i<fileList.length ; i++) {
+			var file = fileList[i];
+			div = document.createElement('div');
+			div.innerHTML = "第" + (i+1) + "个文件的文件名是：" + file.name + "<br>"
+				+ "该文件类型是：" + file.type + "<br>"
+				+ "该文件大小是：" + file.size;
+			document.body.appendChild(div);
+		}
+	}
+
+	</script>
+</body>
+</html>
