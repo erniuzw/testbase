@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>音乐播放列表</title>
+	<link rel="stylesheet" type="text/css" href="./style/layout.css">
+</head>
+<body>
+	<img src="./src/img/5060/262.png">
+	<h1>播放列表</h1>
+	<form>
+		<input type="text" id="songTextInput" size="30" placeholder="音乐名称"><br>
+		<input type="file" id="songFileInput"><br>
+		<input type="button" id="addButton" value="添加音乐">
+	</form>
+	<ul id="playlist">
+	</ul>
+	<audio controls>
+		<source src="http://yinyueshiting.baidu.com/data2/music/121949214/10706222072000128.mp3?xcode=5f1fdfe3293a2b8abeae0354fc8e256eb4466a394862450a" type="audio/mpeg">
+	</audio>
+	<script src="./script/playlist.js"></script>
+</body>
+</html>

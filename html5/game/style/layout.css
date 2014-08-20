@@ -1,0 +1,9 @@
+@font-face {
+	font-family: lolita;
+	src:url('./style/lolita.ttc');
+}
+
+body {
+	font-family: "Microsoft YaHei";
+	background-color: #FFC;
+}
