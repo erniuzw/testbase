@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>CSS布局测试</title>
+	<style type="text/css">
+	* {
+		-webkit-box-sizing: border-box;
+     	-moz-box-sizing: border-box;
+     	box-sizing: border-box;
+	}
+
+	.simple {
+		position: relative;
+		width: 500px;
+		height: 500px;
+		/*margin: 20px auto;*/
+		border: solid red 6px;
+	}
+
+	.fancy {
+		position: absolute;
+		top:50px;
+		left:50px;
+		width: 500px;
+		/*margin:20px auto;*/
+		border: solid blue 20px;
+		padding:50px;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="simple">div class="simple"</div>
+	<div class="fancy">div class="fancy"</div>
+</body>
+</html>
