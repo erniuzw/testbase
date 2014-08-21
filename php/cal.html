@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>简单计算器</title>
+</head>
+<body>
+	<?php 
+		$mess = "";
+		if(isset($_POST["sub"]) {
+			if($_POST["num1"]=="") {
+				$mess .= "第一个数不能为空!<br>";
+			} else {
+				if(!is_numeric($_POST["num1"])){
+					$mess .= "第一个数字必须是数字！<br>"
+				}
+			}
+
+			if($_POST["num2"]=="") {
+				$mess .= "第二个数不能为空!<br>";
+			} else {
+				if(!is_numeric($_POST["num1"])){
+					$mess .= "第二个数字必须是数字！<br>"
+				} else {
+					if($_POST["opt"]=="/" && $_POST["num2"]==0) {
+						$mess .= "除数不能为0"；
+					}
+				}
+			}			
+		}
+
+	?>
+
+	<table border="1" align="center" width="400">
+		<form action="" method="post">
+			<caption><h1>计算器</h1></caption>
+			<tr>
+				<td>
+					<input type="text" size="4" name="num1" value="<?php echo $_POST["num1"] ?>" />
+				</td>
+				<td>
+					<select name="opt">
+						<option></option>
+					</select>
+				</td>
+
+			</tr>
+		</form>
+	</table>
+
+</body>
+</html>
