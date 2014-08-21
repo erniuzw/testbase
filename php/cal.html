@@ -7,12 +7,12 @@
 <body>
 	<?php 
 		$mess = "";
-		if(isset($_POST["sub"]) {
+		if(isset($_POST["sub"])) {
 			if($_POST["num1"]=="") {
 				$mess .= "第一个数不能为空!<br>";
 			} else {
 				if(!is_numeric($_POST["num1"])){
-					$mess .= "第一个数字必须是数字！<br>"
+					$mess .= "第一个数字必须是数字！<br>";
 				}
 			}
 
@@ -20,10 +20,10 @@
 				$mess .= "第二个数不能为空!<br>";
 			} else {
 				if(!is_numeric($_POST["num1"])){
-					$mess .= "第二个数字必须是数字！<br>"
+					$mess .= "第二个数字必须是数字！<br>";
 				} else {
 					if($_POST["opt"]=="/" && $_POST["num2"]==0) {
-						$mess .= "除数不能为0"；
+						$mess .= "除数不能为0";
 					}
 				}
 			}			
@@ -40,12 +40,53 @@
 				</td>
 				<td>
 					<select name="opt">
-						<option></option>
+						<option value="+" <?php echo $_POST["opt"]=="+" ? "selected" : "" ?>>+</option>
+						<option value="-" <?php echo $_POST["opt"]=="-" ? "selected" : "" ?>>-</option>
+						<option value="×" <?php echo $_POST["opt"]=="×" ? "selected" : "" ?>>×</option>
+						<option value="/" <?php echo $_POST["opt"]=="/" ? "selected" : "" ?>>/</option>
+						<option value="%" <?php echo $_POST["opt"]=="%" ? "selected" : "" ?>>%</option>
 					</select>
 				</td>
-
+				<td>
+					<input type="text" size="4" name="num2" value="<?php echo $_POST["num2"] ?>" />
+				</td>
+				<td>
+					<input type="submit" name="sub" value="计算" />
+				</td>
 			</tr>
 		</form>
+		<?php 
+			if(isset($_POST["sub"])) {
+				echo '<tr><td colspan="4">';
+				if(!$mess) {
+					$sum = 0;
+					switch($_POST["opt"]) {
+						case "+":
+							$sum = $_POST["sum1"] + $_POST["sum2"];
+							break;
+						case "-":
+							$sum = $_POST["sum1"] - $_POST["sum2"];
+							break;
+						case "×":
+							$sum = $_POST["sum1"] * $_POST["sum2"];
+							break;
+						case "/":
+							$sum = $_POST["sum1"] / $_POST["sum2"];
+							break;
+						case "%":
+							$sum = $_POST["sum1"] % $_POST["sum2"];
+							break;
+					}
+					echo "结果：{$_POST["num1"]}{$_POST["opt"]}{$_POST["num2"]} = {$sum}";
+				} else {
+					echo $mess;
+				}
+				echo '</td></tr>';
+			}
+
+		?>
+
+
 	</table>
 
 </body>
